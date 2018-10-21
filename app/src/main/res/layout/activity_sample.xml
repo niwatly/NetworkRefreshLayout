@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:emptyId="@id/content_missed_text"
-        app:contentId="@id/content_missed_text"
+        app:contentId="@id/content_found_text"
         app:loadingId="@id/progress"
         >
 
@@ -25,7 +25,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="No content."
-                android:textSize="18sp"
                 android:visibility="gone"
                 />
 

@@ -56,7 +56,7 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 	
 	/**
 	 * プルリフレッシュによるロードが始まったときや
-	 * 初期値のロードが始まった時に呼ばれる
+	 * 初期値のロードが始まった時に呼ぶ
 	 */
 	public void startLoading() {
 		startLoading(false);
@@ -69,7 +69,7 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 		if (mEmptyView != null) {
 			mEmptyView.setVisibility(View.GONE);
 		}
-		//ローディング中もコンテンツは隠さない
+		//ローディング中もコンテンツを隠さない
 		if (hideContent) {
 			if (mContentView != null) {
 				mContentView.setVisibility(View.GONE);
@@ -79,7 +79,7 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 	
 	/**
 	 * プルリフレッシュによるロードが終わった時や
-	 * 初期値のロードが終わった時に呼ばれる
+	 * 初期値のロードが終わった時に呼ぶ
 	 */
 	public void finishLoading(boolean empty) {
 		if (mLoadingView != null) {
@@ -100,11 +100,6 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 				mContentView.setVisibility(View.VISIBLE);
 			}
 		}
-		
-		if (!mDisableRefresh) {
-			setRefreshing(false);
-			setEnabled(true); // 引っ張り可能
-		}
 	}
 	
 	public void setDisableRefresh(boolean disable) {
@@ -118,7 +113,6 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 			return;
 		}
 		startLoading();
-		setEnabled(false); //引張停止
 		if (mWrappedListener != null) {
 			mWrappedListener.onRefresh();
 		}
@@ -139,9 +133,7 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 			mContentView = child;
 		} else if (resId == mLoadingViewResId) {
 			mLoadingView = child;
-		}
-		
-		if (child instanceof ViewGroup) {
+		} else if (child instanceof ViewGroup) {
 			ViewGroup parent = (ViewGroup)child;
 			for (int i = 0;i < parent.getChildCount(); i++) {
 				findTargetView(parent.getChildAt(i));
