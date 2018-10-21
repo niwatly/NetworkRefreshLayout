@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NetworkRefreshLayout">
+        <attr name="contentId" format="reference"/>
+        <attr name="emptyId" format="reference"/>
+        <attr name="loadingId" format="reference"/>
+        <attr name="disableRefresh" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
+
+    <com.tks.networkrefreshlayout.NetworkRefreshLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:emptyId="@id/content_missed_text"
+        app:contentId="@id/content_missed_text"
+        app:loadingId="@id/progress"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <Button
+                android:id="@+id/content_missed_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="No content."
+                android:textSize="18sp"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/content_found_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Content found!"
+                android:visibility="gone"
+                />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                />
+        </FrameLayout>
+
+    </com.tks.networkrefreshlayout.NetworkRefreshLayout>
+</LinearLayout>
