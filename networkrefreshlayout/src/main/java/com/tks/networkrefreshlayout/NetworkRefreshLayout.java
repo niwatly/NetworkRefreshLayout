@@ -2,6 +2,7 @@ package com.tks.networkrefreshlayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.View;
@@ -42,6 +43,19 @@ public class NetworkRefreshLayout extends SwipeRefreshLayout implements SwipeRef
 			
 			boolean disable = array.getBoolean(R.styleable.NetworkRefreshLayout_disableRefresh, false);
 			setDisableRefresh(disable);
+			
+			int colorsResId = array.getResourceId(R.styleable.NetworkRefreshLayout_color_scheme, 0);
+			if (colorsResId != 0) {
+				TypedArray colorsTypedArray = getResources().obtainTypedArray(colorsResId);
+				int[] colors = new int[colorsTypedArray.length()];
+				
+				for (int i = 0; i < colorsTypedArray.length(); i++) {
+					colors[i] = colorsTypedArray.getColor(i, Color.BLACK);
+				}
+				
+				setColorSchemeColors(colors);
+				colorsTypedArray.recycle();
+			}
 			
 			array.recycle();
 		}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="my_color_scheme">
+        <item>@android:color/holo_blue_bright</item>
+        <item>@android:color/holo_green_dark</item>
+    </array>
+</resources>

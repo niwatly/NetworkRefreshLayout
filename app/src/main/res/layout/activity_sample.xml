@@ -13,6 +13,7 @@
         app:emptyId="@id/content_missed_text"
         app:contentId="@id/content_found_text"
         app:loadingId="@id/progress"
+        app:color_scheme="@array/my_color_scheme"
         >
 
         <FrameLayout
